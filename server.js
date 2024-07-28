@@ -13,7 +13,8 @@ console.log(ages);
 const express = require("express");
 const app = express();
 const db = require("./db");
-
+require("dotenv").config();
+const PORT = process.env.PORT || 3005;
 const bodyParser = require("body-parser");
 app.use(bodyParser.json());
 
@@ -27,4 +28,4 @@ const studentRoutes = require("./routes/studentRoutes");
 app.use("/person", personRoutes);
 app.use("/student", studentRoutes);
 
-app.listen(3005);
+app.listen(PORT);
